@@ -8,6 +8,12 @@ By considering the terms in the Fibonacci sequence whose values do not exceed
 four million, find the sum of the even-valued terms.
 """
 
+import time
+
+#Attempt 1
+
+start_time = time.time()
+
 x, y = 1, 2
 total = 0
 
@@ -17,3 +23,21 @@ while x < 4000000:
         total = total + x
 
 print total
+
+print time.time() - start_time, "seconds\n"
+
+#Improvement 1
+
+start_time = time.time()
+
+x, y = 1, 2
+total = 0
+
+while x < 4000000:
+    x, y = y, x + y
+    if x % 2 == 0:
+        total = total + x
+
+print total
+
+print time.time() - start_time, "seconds\n"
